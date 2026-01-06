@@ -1279,10 +1279,7 @@
                         <img src="logo-azul.png" alt="App de análise ambiental" class="project-img">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link" title="Ver Demo" onclick="alert('Em desenvolvimento')" >
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                                <a href="#" class="project-link" title="Ver Código" onclick="alert('Em desenvolvimento')">
+                                <a href="https://github.com/jmiguelSantos2025/EcoBreath" target="_blank" class="project-link" title="Ver Código">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -1296,7 +1293,7 @@
                             <span class="tech-tag">Firebase</span>
                             <span class="tech-tag">Victory Charts</span>
                         </div>
-                        <a href="#" class="btn btn-small" onclick="alert('Em desenvolvimento')">Ver Detalhes</a>
+                        <a href="https://github.com/jmiguelSantos2025/EcoBreath" class="btn btn-small" target="_blank">Ver Detalhes</a>
                     </div>
                 </div>
                 
@@ -1306,10 +1303,8 @@
                         <img src="green-drop.png" alt="App de Irrigação controlado por IA" class="project-img">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link" title="Ver Demo">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                                <a href="#" class="project-link" title="Ver Código">
+                                
+                                <a href="https://github.com/jmiguelSantos2025/GreenDropApp" target="_blank" class="project-link" title="Ver Código">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -1323,7 +1318,7 @@
                             <span class="tech-tag">Firebase</span>
                             <span class="tech-tag">Figma</span>
                         </div>
-                        <a href="#" class="btn btn-small" onclick="alert('Em desenvolvimento')">Ver Detalhes</a>
+                        <a href="https://github.com/jmiguelSantos2025/GreenDropApp" class="btn btn-small" target="_blank">Ver Detalhes</a>
                     </div>
                 </div>
                 
@@ -1333,10 +1328,7 @@
                         <img src="nubank-logo.png" alt="App bancário" class="project-img">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link" title="Ver Demo">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                                <a href="#" class="project-link" title="Ver Código">
+                                <a href="https://github.com/jmiguelSantos2025/Nubank" target="_blank" class="project-link" title="Ver Código">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -1350,7 +1342,7 @@
                             <span class="tech-tag">Expo</span>
                             
                         </div>
-                        <a href="#" class="btn btn-small" onclick="alert('Em desenvolvimento')">Ver Detalhes</a>
+                        <a href="https://github.com/jmiguelSantos2025/Nubank" class="btn btn-small" target="_blank">Ver Detalhes</a>
                     </div>
                 </div>
             </div>
@@ -1407,18 +1399,20 @@
                         <a href=""><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
+        
                 <div class="contact-form">
-                    <form id="formContato">
+                    <form action="https://formsubmit.co/jmiguel2021nt@gmail.com" method="POST" id="formContato">
+                        <input type="hidden" name="_next" value="https://port-folio-wheat-omega.vercel.app/">
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nome">Nome</label>
-                                <input type="text" id="nome" class="form-control" required>
+                                <input type="text" name="name" class="form-control" required>
                             </div>
                             
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" class="form-control" required>
+                                <input type="email" name="email" class="form-control" required>
                             </div>
                         </div>
                         
@@ -1575,32 +1569,23 @@
         });
         
         // Form submission
-        formContato.addEventListener('submit', (e) => {
-            e.preventDefault();
+        
+         
             
             // Obter valores do formulário
-            const nome = document.getElementById('nome').value;
+            const nome = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const assunto = document.getElementById('assunto').value;
             
-            // Simular envio (em um caso real, aqui faria uma requisição AJAX)
-            const submitBtn = formContato.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert(`Obrigado, ${nome}! Sua mensagem sobre "${assunto}" não foi enviada. Tente novamente mais tarde , ou se for urgente mande email para jmiguel2021nt@gmail.com`);
-                
-                // Resetar formulário
-                formContato.reset();
-                
-                // Restaurar botão
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
-        });
+        //Envio do email
+        
+        const form = document.getElementById('formContato');
+
+        form.addEventListener("submit", ()=>{
+            const btn = form.querySelector("button");
+            btn.innerText = "Enviando...";
+            btn.disabled = true
+        })
         
         // Filtro de projetos
         filterButtons.forEach(button => {
